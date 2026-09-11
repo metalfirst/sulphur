@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>硫磺新闻聚合 · 近 15 天</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟡</text></svg>" />
+</head>
+<body>
+  <div class="app">
+    <!-- 顶部 -->
+    <header class="header">
+      <div class="header-main">
+        <h1 class="title">
+          <span class="title-icon">🟡</span>
+          硫磺新闻聚合
+        </h1>
+        <p class="subtitle">价格行情 · 产业动态 · 政策法规 · 进出口贸易</p>
+      </div>
+      <div class="header-meta">
+        <span id="last-updated" class="meta-text">加载中…</span>
+        <button id="refresh-btn" class="btn-refresh" title="手动刷新">
+          <span class="btn-refresh-icon">⟳</span>
+          <span class="btn-refresh-text">刷新</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 分类 Tab -->
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-category="">全部</button>
+      <button class="tab" data-category="价格行情">价格行情</button>
+      <button class="tab" data-category="产业动态">产业动态</button>
+      <button class="tab" data-category="政策法规">政策法规</button>
+      <button class="tab" data-category="进出口贸易">进出口贸易</button>
+    </nav>
+
+    <!-- 搜索 -->
+    <div class="search-bar">
+      <input
+        id="search-input"
+        type="search"
+        placeholder="搜索标题或摘要，例如：港口、CFR、投产…"
+        autocomplete="off"
+      />
+      <button id="search-clear" class="search-clear" hidden>×</button>
+    </div>
+
+    <!-- 状态提示 -->
+    <div id="status" class="status" hidden></div>
+
+    <!-- 新闻列表 -->
+    <main id="news-list" class="news-list" aria-live="polite"></main>
+
+    <!-- 空状态 -->
+    <div id="empty-state" class="empty-state" hidden>
+      <div class="empty-icon">📭</div>
+      <div class="empty-title">暂无相关新闻</div>
+      <div class="empty-hint">试试切换分类或调整搜索关键词</div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+      <span>数据来源：GDELT / RSS 多源聚合</span>
+      <span class="footer-sep">·</span>
+      <span>仅展示最近 <strong id="window-days">15</strong> 天</span>
+      <span class="footer-sep">·</span>
+      <span>不存储任何数据，重启即清空</span>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
